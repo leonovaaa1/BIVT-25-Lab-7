@@ -75,8 +75,22 @@ namespace Lab7.Green
             public static void SortByAverageMark(Student[] array)
             {
                 if (array == null) return;
-                Array.Sort(array, (a, b) => b.AverageMark.CompareTo(a.AverageMark));
 
+                int n = array.Length;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    for (int j = 0; j < n - i - 1; j++)
+                    {
+                        
+                        if (array[j].AverageMark < array[j + 1].AverageMark)
+                        {
+                            
+                            Student temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
+                        }
+                    }
+                }
             }
 
             public void Print()
